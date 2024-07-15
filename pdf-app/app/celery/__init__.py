@@ -24,3 +24,6 @@ def celery_init_app(app: Flask) -> Celery:
     app.extensions["celery"] = celery_app
 
     return celery_app
+
+
+"redis://default:aVcBMHwhYmblt3r7jvyM6oU1uZxooiE8@redis-13997.c262.us-east-1-3.ec2.redns.redis-cloud.com:13997"

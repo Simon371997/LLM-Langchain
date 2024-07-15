@@ -1,4 +1,4 @@
-"""create ebneddings"""
+"""create embeddings"""
 
 from langchain.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
@@ -27,4 +27,10 @@ def create_embeddings_for_pdf(pdf_id: str, pdf_path: str):
     loader = PyPDFLoader(pdf_path)
     docs = loader.load_and_split(text_splitter=text_splitter)
 
+    for doc in docs:
+        doc.metadata = {
+            "page": doc.metadata["page"],
+            "text": doc.page_content,
+            "pdf_id": pdf_id,
+        }
     vector_store.add_documents(docs)
