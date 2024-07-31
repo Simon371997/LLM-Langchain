@@ -2,7 +2,9 @@ from dotenv import load_dotenv
 from langchain.prompts import ChatPromptTemplate
 from langchain.schema.output_parser import StrOutputParser
 from langchain.schema.runnable import RunnableParallel, RunnableLambda
+
 from langchain_openai import ChatOpenAI
+
 
 # Load environment variables from .env
 load_dotenv()
@@ -73,7 +75,7 @@ chain = (
 )
 
 # Run the chain
-result = chain.invoke({"product_name": "MacBook Pro"})
+result = chain.invoke({"product_name": "AMD Ryzen 5 7500F"})
 
 # Output
 print(result)
